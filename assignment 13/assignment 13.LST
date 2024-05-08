@@ -1,0 +1,52 @@
+C51 COMPILER V7.50   ASSIGNMENT_13                                                         10/12/2023 07:47:52 PAGE 1   
+
+
+C51 COMPILER V7.50, COMPILATION OF MODULE ASSIGNMENT_13
+OBJECT MODULE PLACED IN assignment 13.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE assignment 13.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include <reg51.h>
+   2          sbit mybit=P1^5;
+   3          sbit SW=P1^7;
+   4          void T0M1Delay(unsigned char);
+   5          void main(void){
+   6   1      SW=1; 
+   7   1      while (1) {
+   8   2      mybit=~mybit; 
+   9   2      if (SW==0) 
+  10   2      T0M1Delay(0);
+  11   2      else
+  12   2      T0M1Delay(1);
+  13   2      }
+  14   1      }
+  15          void T0M1Delay(unsigned char c){
+  16   1      TMOD=0x01;
+  17   1      if (c==0) {
+  18   2      TL1=0x67;
+  19   2      TH1=0xFC;
+  20   2      }
+  21   1      else {
+  22   2      TL1=0x9A;
+  23   2      TH1=0xFD;
+  24   2      }
+  25   1      TR0=1;
+  26   1      while (TF0==0);
+  27   1      TR1=0;
+  28   1      TF1=0;
+  29   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     51    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

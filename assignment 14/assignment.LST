@@ -1,0 +1,46 @@
+C51 COMPILER V7.50   ASSIGNMENT                                                            10/12/2023 07:58:09 PAGE 1   
+
+
+C51 COMPILER V7.50, COMPILATION OF MODULE ASSIGNMENT
+OBJECT MODULE PLACED IN assignment.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE assignment.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>                                                                                                                                        #include<reg51.h>
+   2          sbit LED =P2^7;
+   3          void delay();
+   4           void main()
+   5           {
+   6   1         while(1)
+   7   1         {
+   8   2         LED=1;
+   9   2         delay();
+  10   2         LED =0;
+  11   2         delay ();
+  12   2         }
+  13   1         }
+  14             void delay ()
+  15             {
+  16   1          TMOD = 0x02;
+  17   1              TH1  = 0X48;
+  18   1              TL1  = 0X00;
+  19   1          TR1=1;
+  20   1              while(TF1==0);
+  21   1              TR1=0;
+  22   1              TF1=0;
+  23   1              }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     31    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
